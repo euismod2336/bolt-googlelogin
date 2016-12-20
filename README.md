@@ -1,11 +1,7 @@
-Bolt Extension Starter
+Bolt Google Login
 ======================
 
-A starter skeleton for a Bolt Extension
+Set up credentials at:
+https://console.developers.google.com/apis/credentials
 
-To get going run the following command, replacing the last argument with the name of your extension:
-
-`composer create-project --no-install bolt/bolt-extension-starter <newextname>`  
-
-For more information, see this page in the Bolt documentation: https://docs.bolt.cm/extensions/config 
-"# bolt-googlelogin" 
+Choose an 'OAuth Client ID', then 'Web Application'. Fill the applicable data and set as redirect uri *YOUR DOMAIN* + '/bolt/extensions/oauth2callback'. Press 'Create', download the JSON file and set this in the configuration of the extension in the backend of Bolt.
