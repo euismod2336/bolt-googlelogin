@@ -1,0 +1,8 @@
+# The google JSON file
+google_json: {"web":{"client_id":"45304937631-lphgk18oprufaq0aqttuth4rbc7kropl.apps.googleusercontent.com","project_id":"alien-baton-128009","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://accounts.google.com/o/oauth2/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"4ubbRearoYNe72WDZjcFPpX4","redirect_uris":["http://bolt.dev/bolt/extensions/oauth2callback"],"javascript_origins":["http://bolt.dev"]}}
+
+# The url to redirect user after verifying with google
+callback_url: /
+
+# Allowed domains
+allowed: [ gmail.com, ussproton.nl ]
