@@ -13,7 +13,9 @@ class Extension extends BaseExtension
     public function initialize()
     {
 	    $this->addTwigFunction('googlelogin_getLoginUrl', 'getLoginUrl');
-	    $this->addTwigFunction('googlelogin_isLoggedIn', 'isLoggedIn');
+        $this->addTwigFunction('googlelogin_isLoggedIn', 'isLoggedIn');
+        $this->addTwigFunction('googlelogin_email', 'twigGetEmail');
+        $this->addTwigFunction('googlelogin_name', 'twigGetName');
 
 	    // TODO: could make this more flexible
 	    $this->app->match('/bolt/extensions/oauth2callback', array($this,'doLogin'));
@@ -22,6 +24,24 @@ class Extension extends BaseExtension
 	    {
 		    //print_r($this->app['twig']);
 	    }
+    }
+
+    /**
+     * Function for returning the user's email address
+     *
+     * @return bool|string  the user's email address or FALSE if it's not available
+     */
+    public function twigGetEmail(){
+        return isset($_SESSION['googlelogin.email']) ? $_SESSION['googlelogin.email'] : false;
+    }
+
+    /**
+     * Function for returning the user's name
+     *
+     * @return bool|string  the user's name or FALSE if it's not available
+     */
+    public function twigGetName(){
+        return isset($_SESSION['googlelogin.displayname']) ? $_SESSION['googlelogin.displayname'] : false;
     }
 
 	/**
@@ -126,5 +146,14 @@ class Extension extends BaseExtension
     public function getName()
     {
         return "GoogleLogin";
+    }
+
+    /**
+     * Mandatory function to ensure the plugin twig function can be loaded into a page contents
+     * @return bool
+     */
+    public function isSafe()
+    {
+        return true;
     }
 }
