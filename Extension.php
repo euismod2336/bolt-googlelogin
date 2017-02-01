@@ -19,11 +19,29 @@ class Extension extends BaseExtension
 
 	    // TODO: could make this more flexible
 	    $this->app->match('/bolt/extensions/oauth2callback', array($this,'doLogin'));
+	    $this->app->match('/bolt/extensions/googlelogout', array($this,'doLogout'));
 
 	    if ($this->isLoggedIn())
 	    {
 		    //print_r($this->app['twig']);
 	    }
+    }
+
+	/**
+	 * Function to forcibly logout a user and delete session data
+	 *
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse redirect to url from config
+	 */
+	public function doLogout()
+	{
+		if (isset($_SESSION['googlelogin.email']))
+		{
+			unset($_SESSION['googlelogin.email']);
+			unset($_SESSION['googlelogin.displayname']);
+			unset($_SESSION['googlelogin.name']);
+		}
+
+		return $this->app->redirect($this->config['callback_url'] . '?glr0');
     }
 
     /**
