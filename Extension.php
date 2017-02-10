@@ -39,6 +39,7 @@ class Extension extends BaseExtension
 			unset($_SESSION['googlelogin.email']);
 			unset($_SESSION['googlelogin.displayname']);
 			unset($_SESSION['googlelogin.name']);
+			unset($_SESSION['access_token']);
 		}
 
 		return $this->app->redirect($this->config['callback_url'] . '?glr0');
