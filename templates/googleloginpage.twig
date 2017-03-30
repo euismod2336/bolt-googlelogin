@@ -1,0 +1,16 @@
+{% if googlelogin_isLoggedIn() %}
+    <p>Hallo {{ googlelogin_name() }},<br /><br/>
+
+        Je bent succesvol ingelogd. <a href="/bolt/extensions/googlelogout" class="btn btn-primary loginbutton">Uitloggen</a></p>
+    {%  if redirect_url is defined %}
+    {{ redirect(redirect_url) }}
+    {% endif %}
+{% else %}
+    {% if app.request.get('gloggedin') == '0' %}
+        <p>Je hebt geen toestemming om in te loggen, log in met je @students.uu.nl-e-mailadres. Werkt het dan nog steeds niet, stuur dan een mailtje naar het bestuur en vraag of ze je op de lijst met toegestane e-mailadressen zetten.</p>
+    {% endif %}
+
+    <p>Log in om toegang te krijgen tot de opgevraagde pagina:<br />
+        <a href="{{ googlelogin_getLoginUrl() }}" class="btn btn-primary loginbutton">Login</a></p>
+
+{% endif %}

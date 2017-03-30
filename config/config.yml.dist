@@ -4,5 +4,8 @@ google_json: {}
 # The url to redirect user after verifying with google
 callback_url: /
 
-# Allowed domains
-allowed: [ gmail.com, ussproton.nl ]
+# The URL that contains the login form
+login_page: login
+
+# Allowed email addresses
+allowed_emails: []
