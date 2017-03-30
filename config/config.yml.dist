@@ -8,4 +8,4 @@ callback_url: /
 login_page: login
 
 # Allowed email addresses
-allowed_emails: []
+allowed_emails: {"group_identifier": ["email1","email2"], "group2":["email3","email4"]}

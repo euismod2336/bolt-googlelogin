@@ -25,4 +25,17 @@ pages:
        ...
 ```
 
-After you've done that, you can use the functions `{{ googlelogin_name() }}`,`{{ googlelogin_email() }}`,`{{ googlelogin_isLoggedIn() }}` and `{{ googlelogin_getLoginUrl() }}` in your pages.
+After you've done that, you can use the functions `{{ googlelogin_name() }}`,`{{ googlelogin_email() }}`,`{{ googlelogin_isLoggedIn() }}`, `{{ googlelogin_getLoginUrl() }}` in your pages.
+
+You can easily protect a page by putting `{{ requiregooglelogin() }}` at the top of that page. You can secure the contents by putting it inside:
+```twig
+{{ requiregooglelogin() }}
+
+{% if googlelogin_isLoggedIn() %}
+<p>... your contents ...</p>
+{% endif %}
+```
+This will automatically redirect the user (if not logged in) to the `login_page` in the extension's configuration file and redirect it back to the restricted page after logging in. That page should contain the code `{{ googleloginpage() }}`
+
+Only users listed in `allowed_emails` in the extension's configuration file will be able to log in.
+
