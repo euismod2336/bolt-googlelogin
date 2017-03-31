@@ -4,4 +4,3 @@ composer.lock
 vendor/
 tests/tmp/
 
-assets/client_secret.json

@@ -1,0 +1,11 @@
+# The google JSON file
+google_json: {}
+
+# The url to redirect user after verifying with google
+callback_url: /
+
+# The URL that contains the login form
+login_page: login
+
+# Allowed email addresses
+allowed_emails: {"group_identifier": ["email1","email2"], "group2":["email3","email4"]}
